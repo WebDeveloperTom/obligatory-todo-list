@@ -23,8 +23,9 @@ class App extends Component {
     ]
   };
   handleClick = id => {
+    const statecopy = this.state.todoItems;
     this.setState({
-      todoItems: this.state.todoItems.map(todo => {
+      todoItems: statecopy.map(todo => {
         if (todo.id === id) {
           todo.complete = !todo.complete;
         }
