@@ -7,10 +7,11 @@ class ToDoItem extends Component {
     };
   };
   render() {
+    const { handleClick } = this.props;
     return (
-      <div>
+      <label onClick={handleClick.bind(this, this.props.info.id)}>
         <li style={this.getStyle()}>{this.props.info.title}</li>
-      </div>
+      </label>
     );
   }
 }

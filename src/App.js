@@ -22,12 +22,29 @@ class App extends Component {
       }
     ]
   };
+  handleClick = id => {
+    this.setState({
+      todoItems: this.state.todoItems.map(todo => {
+        if (todo.id === id) {
+          todo.complete = !todo.complete;
+        }
+        return todo;
+      })
+    });
+  };
   render() {
     return (
       <div>
         <h1>Todolist</h1>
+        <input type="text" />
         {this.state.todoItems.map(item => {
-          return <ToDoItem key={item.id} info={item} />;
+          return (
+            <ToDoItem
+              key={item.id}
+              info={item}
+              handleClick={this.handleClick}
+            />
+          );
         })}
       </div>
     );
