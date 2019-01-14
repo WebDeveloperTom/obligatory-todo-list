@@ -20,7 +20,8 @@ class App extends Component {
         title: "Take a nap",
         complete: false
       }
-    ]
+    ],
+    inputValue: ""
   };
   handleClick = id => {
     const statecopy = this.state.todoItems;
@@ -33,11 +34,37 @@ class App extends Component {
       })
     });
   };
+  handleChange = e => {
+    this.setState({ inputValue: e.target.value });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("Submitted!");
+    const newId = Math.floor(Math.random() * 100);
+    const newTodo = {
+      id: newId,
+      title: this.state.inputValue,
+      complete: false
+    };
+    let newState = this.state.todoItems.slice();
+    newState.push(newTodo);
+    this.setState({
+      todoItems: newState,
+      inputValue: ""
+    });
+  };
   render() {
     return (
       <div>
         <h1>Todolist</h1>
-        <input type="text" />
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            onChange={this.handleChange}
+            value={this.state.inputValue}
+          />
+        </form>
+
         {this.state.todoItems.map(item => {
           return (
             <ToDoItem
