@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {}
+
+h1 {
+  height: 50px;
+  text-align: center;
+}
+
+.listContainer {
+  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+label>li {
+  text-align: center;
+  list-style: none;
+  height: 50px;
+  width: 100px;
+}
+
+.todoItem {
+  display: flex;
+}
