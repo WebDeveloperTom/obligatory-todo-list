@@ -53,27 +53,36 @@ class App extends Component {
       inputValue: ""
     });
   };
+  remove = id => {
+    console.log(`This id ${id} will be removed`);
+    const statecopy = this.state.todoItems.filter(item => item.id !== id);
+    this.setState({ todoItems: statecopy });
+  };
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Todolist</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            onChange={this.handleChange}
-            value={this.state.inputValue}
-          />
-        </form>
-
-        {this.state.todoItems.map(item => {
-          return (
-            <ToDoItem
-              key={item.id}
-              info={item}
-              handleClick={this.handleClick}
+        <div className="listContainer">
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              onChange={this.handleChange}
+              value={this.state.inputValue}
             />
-          );
-        })}
+          </form>
+          <div className="list">
+            {this.state.todoItems.map(item => {
+              return (
+                <ToDoItem
+                  key={item.id}
+                  info={item}
+                  handleClick={this.handleClick}
+                  remove={this.remove}
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
   }
