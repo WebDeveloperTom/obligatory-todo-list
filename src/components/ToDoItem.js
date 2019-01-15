@@ -7,11 +7,14 @@ class ToDoItem extends Component {
     };
   };
   render() {
-    const { handleClick } = this.props;
+    const { handleClick, remove } = this.props;
     return (
-      <label onClick={handleClick.bind(this, this.props.info.id)}>
-        <li style={this.getStyle()}>{this.props.info.title}</li>
-      </label>
+      <div className="todoItem">
+        <label onClick={handleClick.bind(this, this.props.info.id)}>
+          <li style={this.getStyle()}>{this.props.info.title}</li>
+        </label>
+        <p onClick={remove.bind(this, this.props.info.id)}>remove</p>
+      </div>
     );
   }
 }
