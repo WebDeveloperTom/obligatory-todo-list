@@ -13,7 +13,12 @@ class ToDoItem extends Component {
         <label onClick={handleClick.bind(this, this.props.info.id)}>
           <li style={this.getStyle()}>{this.props.info.title}</li>
         </label>
-        <p onClick={remove.bind(this, this.props.info.id)}>remove</p>
+        <span
+          className="remove"
+          onClick={remove.bind(this, this.props.info.id)}
+        >
+          X
+        </span>
       </div>
     );
   }
