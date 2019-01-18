@@ -10,6 +10,17 @@ h1 {
   text-align: center;
 }
 
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+button {
+  width: 100px;
+  border-radius: 5px;
+}
+
 .listContainer {
   /* text-align: center; */
   display: flex;
@@ -18,12 +29,36 @@ h1 {
 }
 
 label>li {
-  text-align: center;
   list-style: none;
-  height: 50px;
   width: 100px;
 }
 
 .todoItem {
   display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+  border-bottom: 1px solid black;
+}
+
+.remove:hover {
+  opacity: 1;
+}
+
+.remove {
+  font-size: 12px;
+  text-align: center;
+  border-radius: 45%;
+  width: 17px;
+  height: 17px;
+  background: #9F0000;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+button {
+  margin-top: 20px;
 }
