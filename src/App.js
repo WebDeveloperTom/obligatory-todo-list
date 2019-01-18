@@ -58,6 +58,13 @@ class App extends Component {
     const statecopy = this.state.todoItems.filter(item => item.id !== id);
     this.setState({ todoItems: statecopy });
   };
+
+  reset = () => {
+    this.setState({
+      todoItems: []
+    });
+  };
+
   render() {
     return (
       <div className="container">
@@ -68,6 +75,7 @@ class App extends Component {
               type="text"
               onChange={this.handleChange}
               value={this.state.inputValue}
+              placeholder="Let's get stuff done!"
             />
           </form>
           <div className="list">
@@ -83,6 +91,7 @@ class App extends Component {
             })}
           </div>
         </div>
+        <button onClick={this.reset}>Reset List</button>
       </div>
     );
   }
